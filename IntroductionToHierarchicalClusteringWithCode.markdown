@@ -12,7 +12,7 @@ Total diameter | Central hole diameter | Number of objects
 
 *Table 1; a table of hypothetical values, solely for demonstration purposes.*
 
-```
+```{r}
 #For anybody unfamiliar, code will appear in this format
 #while a pound-sign/hash-tag preceding a scentence dictates it is comment about the code within R
 
