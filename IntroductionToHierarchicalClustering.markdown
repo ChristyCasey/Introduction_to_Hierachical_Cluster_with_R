@@ -30,18 +30,29 @@ To save on the number of computations needed the demonstration of the distance m
 
 As there is only two variables in the example being used here the equation will only expand to n=2 in the calculations shown. The distance between a point and itself will be zero. On the distance matrix table this lies on the diagonal. To begin with this distance is filled in first.
 The distances that need to be calculated are Donut-Scones Donut-Pizza, and Scones-Pizza
+
 Donut-Scones;
+
 ![*Calculation 1;* ](Images/image006.png?raw=true)
+
 = 2.236
+
 Donut-Pizza;
+
 ![*Calculation 2;*](Images/image007.png?raw=true)
+
  = 5.099
+
 Scone-Pizza; 
+
 ![*Calculation 3;* ](Images/image009.png?raw=true)
+
 = 7
+
 Using these values the rest of the distance matrix is made
 
- | Donut | Scones | Pizza
+
+_ | Donut | Scones | Pizza
 -|-------|--------|-------
 Donut | 0 | |
 Scones | 2.236 | 0 |
@@ -51,7 +62,7 @@ Pizza | 5.099 | 7 | 0
 
 If this were to be clustered the using the UPGMA method the average of the distances would be taken for 2 objects to be paired. The ones which are selected are those that are already the closest. In the above table it would be Pizza-Scones. The distance they are to the other objects in the table are removed, and replaced by a profile. This is the average of the distance to the other object, in this case Donuts. The example distance matrix is shown below.
 
- | Donut | Scones/Pizza
+_ | Donut | Scones/Pizza
 -|-------|---------
 Donut | 0 |	
 Scones/Pizza | 3.6675 | 0
@@ -103,7 +114,7 @@ The silhouette method was first described by Rousseuw in 1986 [12]. The silhouet
 
 ![Figure 7](Images/image020.png?raw=true)
 
-*Figure 7; A figure of the average silhouette scores for the number of cluster included in the model. *
+*Figure 7; A figure of the average silhouette scores for the number of cluster included in the model.*
 
 Examining the figure of scores vs the number of clusters it is apparent that the method suggest that the best model uses a cluster number of 7, with 5 being a close second. While 6 has a noticeable drop off in comparison but would still be a decent classification for the data. The high score for 5 is expected as there is five values around which each set of data is centred. The value of 3 clusters is still seen to be quite high as it clustering of the small and large pizza with the medium pizza, does not cause the too much dissimilarity in the cluster, but obviously more is created than the  when it is divided into its 5 clusters. High values are again seen at k = 7. This is dividing the scones in into multiple clusters. It is only via human intuition that this can be spotted and accounted for.
 
