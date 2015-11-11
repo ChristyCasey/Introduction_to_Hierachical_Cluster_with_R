@@ -50,7 +50,7 @@ Pizza_Hole_Sample <- sample(Pizza_Hole,NumberOfPizza,replace=T)
 #Again no change in methodology just another item
 ```
 
-```
+```{r}
 #Create a dataframe to hold these values
 
 DataFrameOfValues <- as.data.frame(matrix(nrow=sum(NumberOfDonuts,NumberOfScones,NumberOfPizza)))
@@ -77,7 +77,7 @@ plot(DataFrameOfValues)
 When viewing the data of this two variables on a Cartesian plot we see groups of datum. Those groups are clusters of the data. From this I spectate that there is 3 distinct clusters. Each of these is actually a food. The foods are donuts, pizza, and scones, respective to order in the table. An argument could also be made for the classification of the datum into two distinct clusters, those who have and do not have a hole. However I would argue that the resulting cluster of pizza and scones is a poor cluster, as it entire overlaps the donut cluster in one axis.
 Using these measurements, it is now possible to classify new data and sort them according to the attributes they possess. So if an item, which was made incorrectly, and had a total diameter of 2 inches was found, it could be either a scone or a donut, by examining the diameter of the central it should become clear into which category to place it.  Another example would be the variety in pizza sizes. The size would likely differ enough from the other objects in order for the pizza of a new size to be grouped with the current pizza cluster. With enough pizza differing in size, new cluster may be formed, allowing the sub-classification of pizzas into small, medium, and large for instance.
 
-```
+```{r}
 #To create a less "obvious" cluster, the pizza group is expanded
 # so as it now includes large medium (already present) and small pizzas
 
@@ -171,7 +171,7 @@ Scones/Pizza | 3.6675 | 0
 
 This is of course just for demonstration stake. As stated earlier the 3 clusters for this data appears to be the best fit. As such there is no need to include this amalgamation. Using a function in R, which follows the same procedure as outline here, was applied to the expanded dataset. Including the small and large pizzas. The method of producing the profiles was the “average” or UPGMA (Unweighted Pair Group Method with Arithmetic Mean), as it is also known by. The resulting tree is shown below. As expected the small and large pizzas grouped with the original pizza sample. While two other distinct groups are the scone and donut samples.
 
-```
+```{r}
 #This code gives meaningful names to individual data points
 #And uses euclidean distances to create a distance matrix
 
@@ -225,7 +225,7 @@ In hierarchical clustering to access the clusters, the tree is cut and the compo
 
 To avoid this an alternative method to UPGMA should be used. Given the explanation of why the clusters divided the way they did a more appropriate method of building the tree would be single linkage. Where UPGMA would use the average of the clusters, and pair this with the nearest neighbour based on these averages, the single linkage method pairs clusters based on the shortest distance between two components of the clusters. This means that where the average of the medium pizza and the small large pizza is was pulled away from the medium, which would have been the ideal medium of the larger all-inclusive pizza cluster, it will no longer affect the large pizza grouping with this cluster. As the short distance between the medium pizza and the large pizza is no longer ignored in favour of the average of the small and medium pizza profile. The single linkage method also does not create a distinction in the relation of the small and large pizza to the medium pizza as the UPGMA method had.
 
-```
+```{r}
 HeirarchicalClust_single <- (hclust(NewData_dist,method = 'single'))
 #The distnace matrix is already created, so the new clustering only changes the method
 #by which the clustering is determined
@@ -241,7 +241,7 @@ plot(HeirarchicalClust_single)
 
  Another method to determine how the tree would be formed is via wards methods. Or wards linkage. This method, similar to the other mentioned methods, takes the clusters of minimum distance and fuses them, to create a new cluster. It is of course in the definition of this distance. Wards method defines the distance as the sum of variances created by joining the clusters. As such the selection of the shortest distance makes wards method one which minimises the variance in the tree. The clustering from this method appears more appropriate as seen the increased difference in the heights of the pizza cluster and non pizza clusters clade.
 
-```
+```{r}
 HeirarchicalClust_ward <- (hclust(NewData_dist,method = 'ward.D'))
 #again only the method of clustering changes
 plot(HeirarchicalClust_ward)
@@ -263,7 +263,7 @@ The silhouette method was first described by Rousseuw in 1986. The silhouette me
 
 *Where a(i) is the average dissimilarity of i, with its own cluster, and  b(i) is the dissimilarity of i and the closest point to i which is not part of its cluster.*
 
-```
+```{r}
 #The following packages are loaded in order to use silhouette function
 library(fpc)
 library(cluster)
@@ -294,7 +294,7 @@ Examining the figure of scores vs the number of clusters it is apparent that the
 
 **Gap Statistic**
 
-```
+```{r}
 #this is a slightly modified version of code found from;
 # http://stackoverflow.com/questions/15376075/cluster-analysis-in-r-determine-the-optimal-number-of-clusters
 # control + f "Gap Statistic" for the revelant section
