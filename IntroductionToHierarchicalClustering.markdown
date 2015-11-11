@@ -52,8 +52,8 @@ Scone-Pizza;
 Using these values the rest of the distance matrix is made
 
 
-_ | Donut | Scones | Pizza
--|-------|--------|-------
+Dist. Matrix | Donut | Scones | Pizza
+-------|-------|--------|-------
 Donut | 0 | |
 Scones | 2.236 | 0 |
 Pizza | 5.099 | 7 | 0
@@ -62,8 +62,9 @@ Pizza | 5.099 | 7 | 0
 
 If this were to be clustered the using the UPGMA method the average of the distances would be taken for 2 objects to be paired. The ones which are selected are those that are already the closest. In the above table it would be Pizza-Scones. The distance they are to the other objects in the table are removed, and replaced by a profile. This is the average of the distance to the other object, in this case Donuts. The example distance matrix is shown below.
 
-_ | Donut | Scones/Pizza
--|-------|---------
+
+Dist. Matrix | Donut | Scones/Pizza
+-------|-------|---------
 Donut | 0 |	
 Scones/Pizza | 3.6675 | 0
 
