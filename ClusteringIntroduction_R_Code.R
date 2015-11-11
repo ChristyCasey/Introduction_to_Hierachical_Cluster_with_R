@@ -40,10 +40,11 @@ DataFrameOfValues <- as.data.frame(matrix(nrow=sum(NumberOfDonuts,NumberOfScones
 #create a martix with a number of rows equal to the total number of donuts/scones/pizzas
 #convert to a dataframe using the "as.data.frame". And call this "DataFrameOfValues"
 DataFrameOfValues[,'Total_Diameter'] <- c(Donuts_Total_Sample,Scone_Total_Sample,Pizza_Total_Sample)
-#Create a new column called 'Total_Diamete". Add the samples obtain early to this col
+#Create a new column called 'Total_Diameter". Add the samples obtain early to this col
 DataFrameOfValues[,'Hole_Diameter'] <- c(Donuts_Hole_Sample,Scone_Hole_Sample,Pizza_Hole_Sample)
 #Same as above but with the diameter of hole as opposed to total diameter
 DataFrameOfValues <- DataFrameOfValues[,-1]
+#remove the empty column form the creatation of the dataframe
 
 
 plot(DataFrameOfValues)
@@ -83,6 +84,7 @@ plot(NewDataFrame)
 
 NewDataFrame
 
+#Name each of the data points, for visual presentation on graphs
 DonutNames <-c()
 for (i in 1:NumberOfDonuts){
 DonutNames <- c(DonutNames,paste('Donut Number ',i,sep=''))
@@ -103,16 +105,26 @@ Small_PizzaNames <-c()
 for (i in 1:NumberOfSmall_Pizza){
   Small_PizzaNames <- c(Small_PizzaNames,paste('Small_Pizza Number ',i,sep=''))
 }
+
 RowNames <- c(DonutNames,SconeNames,PizzaNames,Large_PizzaNames,Small_PizzaNames)
+#The order here is the same as the data was added to the data frame. This is imporant
+
 rownames(NewDataFrame) <- RowNames
+#Rename the rows by the RowNames made above
+
 NewData_dist <- dist(NewDataFrame,diag = 'euclidean')
+#Create a distance matrix
+
 HeirarchicalClust_UPGMA <- (hclust(NewData_dist,method = 'average'))
+#Cluster the distance matrix with average linkage method
 
 plot(HeirarchicalClust_UPGMA)
+#plot this average linkage tree
 
 #save(list=ls(),file='IntroductionGraphs.Rdata')
 
 HeirarchicalClust_ward <- (hclust(NewData_dist,method = 'ward.D'))
+#again only the method of clustering changes
 plot(HeirarchicalClust_ward)
 
 
@@ -120,7 +132,12 @@ HeirarchicalClust_ward2 <- (hclust(NewData_dist,method = 'ward.D2'))
 plot(HeirarchicalClust_ward2)
 
 HeirarchicalClust_single <- (hclust(NewData_dist,method = 'single'))
+#The distnace matrix is already created, so the new clustering only changes the method
+#by which the clustering is determined
 plot(HeirarchicalClust_single)
+#plots the clustering produced by the single linkage
+
+
 Single_Method_Tree <- cutree(HeirarchicalClust_single,3)
 Single_Method_Tree[Single_Method_Tree==1]
 
