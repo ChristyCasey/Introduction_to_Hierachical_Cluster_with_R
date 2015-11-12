@@ -170,7 +170,7 @@ Scones/Pizza | 3.6675 | 0
 
 *Table 3; a distance matrix after a profile had been created.*
 
-This is of course just for demonstration stake. As stated earlier the 3 clusters for this data appears to be the best fit. As such there is no need to include this amalgamation. Using a function in R, which follows the same procedure as outline here, was applied to the expanded dataset. Including the small and large pizzas. The method of producing the profiles was the “average” or UPGMA (Unweighted Pair Group Method with Arithmetic Mean), as it is also known by. The resulting tree is shown below. As expected the small and large pizzas grouped with the original pizza sample. While two other distinct groups are the scone and donut samples.
+This is of course just for demonstration stake. As stated earlier the 3 clusters for this data appears to be the best fit. As such there is no need to include this amalgamation. Using a function in R, which follows the same procedure as outline here, was applied to the expanded dataset. Including the small and large pizzas. The method of producing the profiles was the 'average' or UPGMA (Unweighted Pair Group Method with Arithmetic Mean), as it is also known by. The resulting tree is shown below. As expected the small and large pizzas grouped with the original pizza sample. While two other distinct groups are the scone and donut samples.
 
 ```{r}
 #This code gives meaningful names to individual data points
