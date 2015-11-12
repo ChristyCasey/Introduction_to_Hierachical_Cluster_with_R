@@ -2,12 +2,8 @@
 
 Everything revelant should be in the following file
 
-https://github.com/ChristyCasey/Introduction_to_Hierachical_Cluster_with_R/blob/Introduction/IntroductionToHierarchicalClustering.markdown
+https://github.com/ChristyCasey/Introduction_to_Hierachical_Cluster_with_R/blob/Introduction/IntroductionToHierarchicalClusteringWithCode.markdown
 
-The R code, if you want to just download it and open it up is in the following file (Written in RStudio so it probably will look best in that environment) 
+It is a simply introduction to hierachical clustering using code, with some basic data, to illustrate the process.
 
-https://github.com/ChristyCasey/Introduction_to_Hierachical_Cluster_with_R/blob/Introduction/ClusteringIntroduction_R_Code.R
-
-And if for any reason you want it in a .doc format, here is the word file (click on "view raw" to download)
-
-https://github.com/ChristyCasey/Introduction_to_Hierachical_Cluster_with_R/blob/Introduction/ClusteringIntroduction_word_file.docx
+The code used is included and commented so as anyone may follow along.

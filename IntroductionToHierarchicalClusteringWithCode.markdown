@@ -27,8 +27,8 @@ Donuts_Hole <- c(0.9,1,1.1)
 NumberOfDonuts <- 12
 #the number of donuts present
 Donuts_Total_Sample <- sample(Donuts_Total,NumberOfDonuts,replace=T) 
-#From the "Donuts_Total" take a number equal to "NumberOfDonuts", and place
-#into the vector "Donuts_Total_Sample". replace = T allows the same value to 
+#From the 'Donuts_Total' take a number equal to 'NumberOfDonuts', and place
+#into the vector 'Donuts_Total_Sample'. replace = T allows the same value to 
 #be picked more than once
 Donuts_Hole_Sample <- sample(Donuts_Hole,NumberOfDonuts,replace=T) 
 #The same procedure as above, but with the diameter of the hole as opposed
@@ -55,9 +55,9 @@ Pizza_Hole_Sample <- sample(Pizza_Hole,NumberOfPizza,replace=T)
 
 DataFrameOfValues <- as.data.frame(matrix(nrow=sum(NumberOfDonuts,NumberOfScones,NumberOfPizza)))
 #create a martix with a number of rows equal to the total number of donuts/scones/pizzas
-#convert to a dataframe using the "as.data.frame". And call this "DataFrameOfValues"
+#convert to a dataframe using the 'as.data.frame'. And call this 'DataFrameOfValues'
 DataFrameOfValues[,'Total_Diameter'] <- c(Donuts_Total_Sample,Scone_Total_Sample,Pizza_Total_Sample)
-#Create a new column called 'Total_Diameter". Add the samples obtain early to this col
+#Create a new column called 'Total_Diameter'. Add the samples obtain early to this col
 DataFrameOfValues[,'Hole_Diameter'] <- c(Donuts_Hole_Sample,Scone_Hole_Sample,Pizza_Hole_Sample)
 #Same as above but with the diameter of hole as opposed to total diameter
 DataFrameOfValues <- DataFrameOfValues[,-1]
@@ -78,7 +78,7 @@ When viewing the data of this two variables on a Cartesian plot we see groups of
 Using these measurements, it is now possible to classify new data and sort them according to the attributes they possess. So if an item, which was made incorrectly, and had a total diameter of 2 inches was found, it could be either a scone or a donut, by examining the diameter of the central it should become clear into which category to place it.  Another example would be the variety in pizza sizes. The size would likely differ enough from the other objects in order for the pizza of a new size to be grouped with the current pizza cluster. With enough pizza differing in size, new cluster may be formed, allowing the sub-classification of pizzas into small, medium, and large for instance.
 
 ```{r}
-#To create a less "obvious" cluster, the pizza group is expanded
+#To create a less 'obvious' cluster, the pizza group is expanded
 # so as it now includes large medium (already present) and small pizzas
 
 #add in the large (12 inch) pizza
@@ -102,7 +102,7 @@ for (i in 1:5){
   NewRow <- c(Large_Pizza_Total_Sample[i],Large_Pizza_Hole_Sample[i])
   #NewRow is a temporary variable which changes on each iteration
   NewDataFrame <- rbind(NewDataFrame,NewRow)
-  #rbind adds the "NewRow" to the bottom of the data frame.
+  #rbind adds the 'NewRow' to the bottom of the data frame.
 }
 
 for (i in 1:5){
@@ -276,8 +276,8 @@ VectorOfSilScores <- c()
 for (k in 2:30){
   #iterate over a range of k = 2, to k = 30
   Silhouette_k <- silhouette(cutree(HeirarchicalClust_single,k),dist = NewData_dist)
-  #for the given value of k use the "silhouette" function to get a score for that value of k
-  #when using hierachical we "cut the tree" to detemerine the number of clusters (k) 
+  #for the given value of k use the 'silhouette' function to get a score for that value of k
+  #when using hierachical we 'cut the tree' to detemerine the number of clusters (k) 
   VectorOfSilScores <- c(VectorOfSilScores,mean(Silhouette_k[,'sil_width']))
   #store this cluster silhouette cluster in the vector
   print(paste('Average silhouette score for ',k,' clusters is ',mean(Silhouette_k[,'sil_width']),sep=''))
@@ -297,23 +297,23 @@ Examining the figure of scores vs the number of clusters it is apparent that the
 ```{r}
 #this is a slightly modified version of code found from;
 # http://stackoverflow.com/questions/15376075/cluster-analysis-in-r-determine-the-optimal-number-of-clusters
-# control + f "Gap Statistic" for the revelant section
+# control + f 'Gap Statistic' for the revelant section
 # the paper (Tibshirani *et al*, 2001) outlining this method can be found at
 # https://web.stanford.edu/~hastie/Papers/gap.pdf
 
 SampleGapStat <- clusGap(as.matrix(NewData_dist),kmeans,10,B=100,verbose=interactive())
 
 xy <- as.matrix(NewData_dist)
-title <- "Raw data"
+title <- 'Raw data'
 
 gap <- SampleGapStat
-k <- maxSE(gap$Tab[, "gap"], gap$Tab[, "SE.sim"], method="Tibs2001SEmax")
+k <- maxSE(gap$Tab[, 'gap'], gap$Tab[, 'SE.sim'], method='Tibs2001SEmax')
 fit <- kmeans(xy, k)
-pch <- ifelse(fit$cluster==1,24,16); col <- ifelse(fit$cluster==1,"Red", "Black")
-plot(gap, main=paste("Gap stats,", title))
-abline(v=k, lty=3, lwd=2, col="Blue")
+pch <- ifelse(fit$cluster==1,24,16); col <- ifelse(fit$cluster==1,'Red', 'Black')
+plot(gap, main=paste('Gap stats,', title))
+abline(v=k, lty=3, lwd=2, col='Blue')
 xy <- apply(xy, 2, scale)
-title <- "Standardized data"
+title <- 'Standardized data'
 ```
 
 
