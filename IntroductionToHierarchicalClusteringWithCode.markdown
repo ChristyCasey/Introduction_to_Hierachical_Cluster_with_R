@@ -1,5 +1,6 @@
 #Introduction to hierarchical clustering with R
 
+
 ##**Sample Data**
 
 Clustering is a technique for classifying data. It is most easily considered using the traditional Cartesian graph. To quickly demonstrate my point I would like to propose a hypothetical scenario. A factory produces an unknown number of different circular objects. Measurements are available for two aspects of these objects. The total diameter of the object, and the diameter of this central hole. Below is a table of the contrived data;

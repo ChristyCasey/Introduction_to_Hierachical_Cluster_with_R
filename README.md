@@ -1,6 +1,6 @@
 # Introduction to Hierachical Cluster with R
 
-Everything revelant should be in the following file
+Everything revelant should be in the following file:
 
 https://github.com/ChristyCasey/Introduction_to_Hierachical_Cluster_with_R/blob/Introduction/IntroductionToHierarchicalClusteringWithCode.markdown
 
